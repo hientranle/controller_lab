@@ -16,7 +16,7 @@
  volatile int *led = (int*)LEDR_BASE;
  volatile int *sw = (int*)SWITCHES_BASE;
  alt_u32 my_alarm_callback(void* context){
-	 int i = 0;
+	 int i = 1;
 	 *led = i;
 	 i*=2;
 	 if (i == 1024){
