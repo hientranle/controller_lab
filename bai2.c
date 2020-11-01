@@ -16,7 +16,7 @@
  volatile int *led = (int*)LEDR_BASE;
  volatile int *sw = (int*)SWITCHES_BASE;
  alt_u32 my_alarm_callback(void* context){
-	 if (sw == 2){
+	 if (*sw == 2){
 	 int i = 0;
 	 i = i | ((led_state&1)<<1) | ((led_state&2)<<2) | ((led_state&4)<<3) | ((led_state&8)<<4) | ((led_state&16)<<5);
 	 *led = i;
@@ -32,7 +32,7 @@
  }
  int main (){
 	 static alt_alarm alarm;
-	 if (alt_alarm_start(&alarm, alt_ticks_per_second(), my_alarm_callback(), NULL)<1){
+	 if (alt_alarm_start(&alarm, alt_ticks_per_second(), my_alarm_callback, NULL)<0){
 		 printf("No system clock available!\n");
 	 }
 	 while (1){
