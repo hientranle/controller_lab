@@ -18,7 +18,7 @@
  alt_u32 my_alarm_callback(void* context){
 	 int i = 0;
 	 *led = i;
-	 i++;
+	 i*=2;
 	 if (i == 1024){
 		 i = 0;
 	 }
