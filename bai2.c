@@ -30,5 +30,14 @@
 	 }
 	 return alt_ticks_per_second()/4;
  }
+ int main (){
+	 static alt_alarm alarm;
+	 if (alt_alarm_start(&alarm, alt_ticks_per_second(), my_alarm_callback(), NULL)<1){
+		 printf("No system clock available!\n");
+	 }
+	 while (1){
 
+	 }
+	 return 0;
+ }
 
